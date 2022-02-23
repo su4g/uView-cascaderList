@@ -472,7 +472,7 @@
                 this.$emit('click');
             },
             /**
-             * 搜索
+             * 搜索 目前版本未验证和修改，如需使用可自行修改后实现数据搜索和服务端查询
              */
             searchOptions(e){
                 if(this.timer){
