@@ -80,9 +80,6 @@
 </template>
 
 <script>
-    import $globalVariable from '@/common/global-variable.js';
-    import $api from '@/common/api.js';
-import Vue from 'vue';
 	/**
      * 修改版本：本组件从uView-ui uselect 修改，仅适用于多列联动（级联字段使用）mode "mutil-column-auto" 固定，使用其他无效
 	 * @tutorial http://uviewui.com/components/select.html
@@ -497,8 +494,9 @@ import Vue from 'vue';
                                 })
                             };
                             const _this = this;
+			    // 无用，报错的话删掉
                             uni.request({
-                                url: `${$globalVariable.otrsHostPath}/mobile.pl?`,
+                                url: '/mobile.pl?',
                                 method: 'POST',
                                 data: params,
                                 header: {
@@ -508,7 +506,7 @@ import Vue from 'vue';
                                     if (res.data.result == '-100') {
                                         return false;
                                     }else{
-                                        list = $api.handleOptions(res.data.data);
+                                        // list = $api.handleOptions(res.data.data);
                                         resolve();
                                     }
                                 },
